@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TimeTracker</string>
+    <string name="SwitchOn">Вкл</string>
+    <string name="SwitchOff">Выкл</string>
+    <string name="Start">Запуск</string>
+    <string name="AppName">Time Tracker</string>
+    <string name="timer_val"></string>
+</resources>
