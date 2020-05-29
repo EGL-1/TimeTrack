@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
         TextView mainText = (TextView) findViewById(R.id.mainText);
         Button btnTimer = (Button) findViewById(R.id.button1);
+        Button btnStats = (Button) findViewById(R.id.button2);
 
         btnTimer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,6 +30,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnStats.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, StatActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
 
