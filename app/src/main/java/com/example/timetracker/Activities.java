@@ -8,9 +8,10 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.sql.Time;
 
 
-public class Tabs extends AppCompatActivity {
+public class Activities extends AppCompatActivity {
 
     ImageButton BtnHobbi;
     ImageButton BtnRead;
@@ -48,7 +49,7 @@ public class Tabs extends AppCompatActivity {
             public void onClick(View v) {
                 if (v.isClickable()) {
                     Intent intent = new Intent();
-                    intent.setClass(Tabs.this, StatActivity.class);
+                    intent.setClass(Activities.this, TimerActivity.class);
                     startActivity(intent);
                 }
             }
@@ -59,7 +60,7 @@ public class Tabs extends AppCompatActivity {
             public void onClick(View v) {
                 if (v.isClickable()) {
                     Intent intent = new Intent();
-                    intent.setClass(Tabs.this, TimerActivity.class);
+                    intent.setClass(Activities.this, TimerActivity.class);
                     startActivity(intent);
                 }
             }
@@ -70,7 +71,7 @@ public class Tabs extends AppCompatActivity {
             public void onClick(View v) {
                 if (v.isClickable()) {
                     Intent intent = new Intent();
-                    intent.setClass(Tabs.this, TimerActivity.class);
+                    intent.setClass(Activities.this, TimerActivity.class);
                     startActivity(intent);
                 }
             }
@@ -81,7 +82,7 @@ public class Tabs extends AppCompatActivity {
             public void onClick(View v) {
                 if (v.isClickable()) {
                     Intent intent = new Intent();
-                    intent.setClass(Tabs.this, TimerActivity.class);
+                    intent.setClass(Activities.this, TimerActivity.class);
                     startActivity(intent);
                 }
             }
@@ -92,7 +93,7 @@ public class Tabs extends AppCompatActivity {
             public void onClick(View v) {
                 if (v.isClickable()) {
                     Intent intent = new Intent();
-                    intent.setClass(Tabs.this, TimerActivity.class);
+                    intent.setClass(Activities.this, TimerActivity.class);
                     startActivity(intent);
                 }
             }
@@ -103,7 +104,7 @@ public class Tabs extends AppCompatActivity {
             public void onClick(View v) {
                 if (v.isClickable()) {
                     Intent intent = new Intent();
-                    intent.setClass(Tabs.this, TimerActivity.class);
+                    intent.setClass(Activities.this, TimerActivity.class);
                     startActivity(intent);
                 }
             }
@@ -114,7 +115,7 @@ public class Tabs extends AppCompatActivity {
             public void onClick(View v) {
                 if (v.isClickable()) {
                     Intent intent = new Intent();
-                    intent.setClass(Tabs.this, TimerActivity.class);
+                    intent.setClass(Activities.this, TimerActivity.class);
                     startActivity(intent);
                 }
             }
@@ -125,7 +126,7 @@ public class Tabs extends AppCompatActivity {
             public void onClick(View v) {
                 if (v.isClickable()) {
                     Intent intent = new Intent();
-                    intent.setClass(Tabs.this, TimerActivity.class);
+                    intent.setClass(Activities.this, TimerActivity.class);
                     startActivity(intent);
                 }
             }
@@ -136,7 +137,7 @@ public class Tabs extends AppCompatActivity {
             public void onClick(View v) {
                 if (v.isClickable()) {
                     Intent intent = new Intent();
-                    intent.setClass(Tabs.this, TimerActivity.class);
+                    intent.setClass(Activities.this, TimerActivity.class);
                     startActivity(intent);
                 }
             }
@@ -147,7 +148,7 @@ public class Tabs extends AppCompatActivity {
             public void onClick(View v) {
                 if (v.isClickable()) {
                     Intent intent = new Intent();
-                    intent.setClass(Tabs.this, TimerActivity.class);
+                    intent.setClass(Activities.this, TimerActivity.class);
                     startActivity(intent);
                 }
             }
@@ -158,7 +159,7 @@ public class Tabs extends AppCompatActivity {
             public void onClick(View v) {
                 if (v.isClickable()) {
                     Intent intent = new Intent();
-                    intent.setClass(Tabs.this, TimerActivity.class);
+                    intent.setClass(Activities.this, TimerActivity.class);
                     startActivity(intent);
                 }
             }
@@ -169,7 +170,7 @@ public class Tabs extends AppCompatActivity {
             public void onClick(View v) {
                 if (v.isClickable()) {
                     Intent intent = new Intent();
-                    intent.setClass(Tabs.this, TimerActivity.class);
+                    intent.setClass(Activities.this, TimerActivity.class);
                     startActivity(intent);
                 }
             }

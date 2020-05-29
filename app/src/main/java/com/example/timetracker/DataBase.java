@@ -9,11 +9,12 @@ import java.util.ArrayList;
 
 public class DataBase extends SQLiteOpenHelper {
 
-    private static final String DB_NAME = "timetrack";
+    private static final String DB_NAME = "track";
     private static final int DB_VERSION = 1;
-    private static final String TABLE_NAME = "b_task_list";
+    private static final String TABLE_NAME = "b_track_list";
     private static final String COL_ID = "ID";
-    private static final String COL_NAME = "task_name";
+    private static final String COL_NAME = "name";
+    private static final String COL_TIME = "time";
 
     public DataBase(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -22,50 +23,50 @@ public class DataBase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String query = String.format(
-                "CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT, %s TEXT NOT NULL);", TABLE_NAME, COL_ID, COL_NAME );
+                "CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT, %s TEXT NOT NULL %s INTEGER NOT NULL);", TABLE_NAME, COL_ID, COL_NAME, COL_TIME );
         db.execSQL(query);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        /*String query = String.format(
-                "DELETE TABLE IF EXISTS %s", TABLE_NAME);
-        db.execSQL(query);
-        onCreate(db);*/
     }
-
-    public void insertRow(String task){
+    //Добавление записей
+    public void addT(Track track){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues value = new ContentValues();
-        value.put(COL_NAME, task);
+        // записываем даннае по отдельной активности
+        value.put(COL_NAME, track.getName());
+        value.put(COL_TIME, track.getTime());
         db.insertWithOnConflict(
                 TABLE_NAME, null, value, SQLiteDatabase.CONFLICT_REPLACE);
     }
 
-    //Удаление записей
-    public void deleteRow(String idTask){
+    public void delT(String idTrack){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_NAME, COL_ID + " = ?", new String[]{idTask}); // Удаляем записи по ID
+        db.delete(TABLE_NAME, COL_ID + " = ?", new String[]{idTrack});
         db.close();
     }
 
-    //Получение всех записей
-    public ArrayList<String[]> getTasks(){
-        ArrayList<String[]> allTasks = new ArrayList<>(); // Расширяемый массив для хранения всех записей
+    public ArrayList<Track> getT(){
+        Track track;
+
+        ArrayList<Track> allTrack = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(TABLE_NAME, null, null, null, null, null, null);
         while (cursor.moveToNext()){
             int idIndex = cursor.getColumnIndex(COL_ID);
             int nameIndex = cursor.getColumnIndex(COL_NAME);
-            String[] itemTasks = new String[2]; // Отдельный массив для хранения ID и названия задачи
-            itemTasks[0] = cursor.getString(idIndex);
-            itemTasks[1] = cursor.getString(nameIndex);
-            allTasks.add(itemTasks);
+            int timeIndex = cursor.getColumnIndex(COL_TIME);
+
+            String name = cursor.getString(nameIndex);
+            float time = Integer.parseInt(cursor.getString(timeIndex));
+            track = new Track(time, name);
+            allTrack.add(track);
         }
 
         cursor.close();
         db.close();
-        return allTasks;
+        return allTrack;
     }
 }

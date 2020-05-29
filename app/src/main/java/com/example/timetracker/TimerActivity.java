@@ -49,6 +49,15 @@ public class TimerActivity extends AppCompatActivity implements View.OnClickList
                 startTime = 0L;
                 customHandler.removeCallbacks(updateTimerThread);
                 timerValue.setText(getString(R.string.timer_val));
+
+
+                // Создание подключения к базе
+                DataBase dataBase = new DataBase(this);
+
+                // В момент остановки счетчика происходит сохранять значение таймера в базу
+                // dataBase.addT() метод для сохранения
+
+
                 break;
         }
     }
